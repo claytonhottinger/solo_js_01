@@ -38,47 +38,30 @@ function evaluate(employee){
   var STI = {};
   switch (employee.rating){
     case 0:
-      STI.name = employee.name;
       STI.percentbonus = 0;
-      STI.adjustedSalary = employee.salary;
-      STI.totalBonus = 0;
       break;
     case 1:
-      STI.name = employee.name;
       STI.percentbonus = 0;
-      STI.adjustedSalary = employee.salary;
-      STI.totalBonus = 0;
       break;
     case 2:
-      STI.name = employee.name;
       STI.percentbonus = 0;
-      STI.adjustedSalary = employee.salary;
-      STI.totalBonus = 0;
       break;
     case 3:
-      STI.name = employee.name;
       STI.percentbonus = (4 + employee.isLongTerm() + employee.isIncomeGreater());
-      STI.adjustedSalary = Math.round(parseInt(employee.salary) + employee.salary * STI.percentbonus / 100);
-      STI.totalBonus = Math.round(employee.salary * STI.percentbonus/100);
       break;
     case 4:
-      STI.name = employee.name;
       STI.percentbonus = (6 + employee.isLongTerm() + employee.isIncomeGreater());
-      STI.adjustedSalary = Math.round(parseInt(employee.salary) + employee.salary * STI.percentbonus / 100);
-      STI.totalBonus = Math.round(employee.salary * STI.percentbonus/100);
       break;
     case 5:
-      STI.name = employee.name;
       STI.percentbonus = (10 + employee.isLongTerm() + employee.isIncomeGreater());
-      STI.adjustedSalary = Math.round(parseInt(employee.salary) + employee.salary * STI.percentbonus / 100);
-      STI.totalBonus = Math.round(employee.salary * STI.percentbonus/100);
       break;
   }
   if (STI.percentbonus > 13){
     STI.percentbonus = 13;
-    STI.adjustedSalary = Math.round(parseInt(employee.salary) + employee.salary * STI.percentbonus / 100);
-    STI.totalBonus = Math.round(employee.salary * STI.percentbonus/100);
   }
+  STI.name = employee.name;
+  STI.adjustedSalary = Math.round(parseInt(employee.salary) + employee.salary * STI.percentbonus / 100);
+  STI.totalBonus = Math.round(employee.salary * STI.percentbonus/100);
 
   return STI;
 }
